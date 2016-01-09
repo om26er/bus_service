@@ -84,9 +84,9 @@ WSGI_APPLICATION = 'bus_service.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django',
+        'NAME': 'student_service',
         'USER': 'django',
-        'PASSWORD': 'pVuGCMSS8M',
+        'PASSWORD': 'django',
         'HOST': 'localhost',
         'PORT': '',
         'CONN_MAX_AGE': 100,
@@ -116,6 +116,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATIC_URL = '/static/'
 
 CORS_ORIGIN_ALLOW_ALL = True
