@@ -13,8 +13,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-import dj_database_url
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -27,7 +25,7 @@ SECRET_KEY = '5&+5ygu)p8c=avsx1)=!xgmyc-$00e&9hgow1^p%+din(%-y5m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -83,17 +81,22 @@ WSGI_APPLICATION = 'bus_service.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django',
+        'USER': 'django',
+        'PASSWORD': 'pVuGCMSS8M',
+        'HOST': 'localhost',
+        'PORT': '',
+        'CONN_MAX_AGE': 100,
+    }
+}
 
-DATABASES = {'default': dj_database_url.config(
-    default='postgres://postgres:postgres@46.101.75.194/student_service'
-)}
-DATABASES['default']['CONN_MAX_AGE'] = 100
+# DATABASES = {'default': dj_database_url.config(
+#     default='postgres://postgres:postgres@46.101.75.194/student_service'
+# )}
+# DATABASES['default']['CONN_MAX_AGE'] = 100
 
 
 # Internationalization
