@@ -81,17 +81,27 @@ WSGI_APPLICATION = 'bus_service.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+
+def get_host():
+    import os
+    if os.path.exists(os.path.expanduser('~/localdb')):
+        return 'localhost'
+    else:
+        return '46.101.75.194'
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'student_service',
-        'USER': 'django',
-        'PASSWORD': 'django',
-        'HOST': 'localhost',
-        'PORT': '',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': get_host(),
+        'PORT': '5432',
         'CONN_MAX_AGE': 100,
     }
 }
+
 
 # DATABASES = {'default': dj_database_url.config(
 #     default='postgres://postgres:postgres@46.101.75.194/student_service'
