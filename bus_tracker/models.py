@@ -9,3 +9,9 @@ class DriverModel(AbstractUser):
     bus_number = models.CharField(max_length=20, blank=True)
 
     USERNAME_FIELD = 'username'
+
+
+# class StudentModel(AbstractUser):
+#
+#     fee_paid = models.BooleanField()
+#     route_name = models.CharField(max_length=200)

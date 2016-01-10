@@ -7,4 +7,5 @@ class DriverSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DriverModel
-        fields = ('username', 'password', 'longitude', 'latitude',)
+        fields = ('username', 'password',)
+        read_only_fields = ('password', )

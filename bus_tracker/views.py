@@ -1,6 +1,7 @@
 from django.http import Http404
 
 from rest_framework.views import APIView
+from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import permissions
@@ -19,12 +20,11 @@ def get_user(username):
         raise Http404
 
 
-class DriverRegistrationView(APIView):
+class DriverRegistrationView(CreateAPIView):
 
-    def post(self, request, format=None):
-        password = request.data.get('password')
+    def post(self, request, *args, **kwargs):
         username = request.data.get('username')
-        request.data.update({'password': HIDDEN_PASSWORD_TEXT})
+        password = request.data.get('password')
         serializer = DriverSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
