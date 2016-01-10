@@ -93,20 +93,14 @@ def get_host():
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'student_service',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'NAME': os.environ['db_name'],
+        'USER': os.environ['db_user'],
+        'PASSWORD': os.environ['db_pass'],
         'HOST': get_host(),
-        'PORT': '5432',
+        'PORT': os.environ['db_port'],
         'CONN_MAX_AGE': 100,
     }
 }
-
-
-# DATABASES = {'default': dj_database_url.config(
-#     default='postgres://postgres:postgres@46.101.75.194/student_service'
-# )}
-# DATABASES['default']['CONN_MAX_AGE'] = 100
 
 
 # Internationalization
