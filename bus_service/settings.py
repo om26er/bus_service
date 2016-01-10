@@ -93,11 +93,11 @@ def get_host():
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['db_name'],
-        'USER': os.environ['db_user'],
-        'PASSWORD': os.environ['db_pass'],
+        'NAME': 'student_service',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
         'HOST': get_host(),
-        'PORT': os.environ['db_port'],
+        'PORT': '5432',
         'CONN_MAX_AGE': 100,
     }
 }
